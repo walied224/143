@@ -4,13 +4,52 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>⚠ Hacker ⚠</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #282c34;
+            color: white;
+            font-family: Arial, sans-serif;
+        }
+        #message {
+            background-color: rgba(0, 0, 0, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            animation: fadeIn 0.5s;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        #confirmButton {
+            background-color: #ff4081;
+            border: none;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+    </style>
     <script>
-        function showAlertAndRedirect() {
-            alert("⚠ تم تهكير الجهاز بنجاح ⚠");
+        function showMessage() {
+            const messageDiv = document.getElementById('message');
+            messageDiv.style.display = 'block';
+        }
+
+        function redirectToPage() {
             window.location.href = "index2.html"; // الانتقال إلى صفحة index2.html
         }
     </script>
 </head>
-<body onload="showAlertAndRedirect()">
+<body onload="showMessage()">
+    <div id="message" style="display: none;">
+        <h2>⚠ تم تهكير الجهاز بنجاح ⚠</h2>
+        <button id="confirmButton" onclick="redirectToPage()">موافق</button>
+    </div>
 </body>
 </html>
