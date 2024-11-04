@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>I love u</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #000; /* خلفية داكنة لتناسب تأثير الماتريكس */
+            overflow: hidden;
+            position: relative;
+            font-family: Arial, sans-serif;
+            color: #ff4081;
+        }
+
+        h1 {
+            font-size: 4em;
+            animation: fadeIn 2s;
+            position: relative;
+            z-index: 1;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .heart {
+            position: absolute;
+            font-size: 30px; /* حجم القلب التعبيري */
+            opacity: 0.8;
+            animation: fall linear infinite; /* تأثير السقوط */
+        }
+
+        @keyframes fall {
+            0% {
+                transform: translateY(-100px); /* بداية السقوط من أعلى */
+            }
+            100% {
+                transform: translateY(100vh); /* نهاية السقوط إلى أسفل الصفحة */
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>
+        <p>Maria ❤ بحبك</p>
+        <p></p>
+    </h1>
+
+    
+
+    <script>
+        function createHeart() {
+            const heart = document.createElement('div');
+            heart.className = 'heart';
+            heart.textContent = '❤'; // استخدام رمز القلب التعبيري
+            heart.style.left = Math.random() * 100 + 'vw'; // عشوائي في عرض الصفحة
+            heart.style.animationDuration = (Math.random() * 2 + 3) + 's'; // عشوائي في سرعة الحركة
+            heart.style.fontSize = (Math.random() * 20 + 20) + 'px'; // تغيير حجم القلب بشكل عشوائي
+
+            document.body.appendChild(heart);
+
+            // إزالة القلب بعد فترة معينة
+            setTimeout(() => {
+                heart.remove();
+            }, 5000); // 5 ثوانٍ حتى تختفي القلوب
+        }
+
+        setInterval(createHeart, 500); // إنشاء قلب جديد كل نصف ثانية
+    </script>
+</body>
+</html>
